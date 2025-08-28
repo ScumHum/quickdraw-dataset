@@ -11,74 +11,41 @@ We have also released a tutorial and model for training your own drawing classif
 
 This repository now includes a **Conditional Variational Autoencoder (VAE)** that can generate new doodles of whatever you want! The model learns to encode sketches into a latent space and can generate new drawings conditioned on category labels.
 
-### Quick Start
+### 🚀 Quick Start
 
-1. **Setup the environment:**
-   ```bash
-   python setup.py
-   ```
-
-2. **Train the model:**
-   ```bash
-   python train.py --download --epochs 20 --categories cat dog face house tree
-   ```
-
-3. **Generate doodles:**
-   ```bash
-   python generate.py --categories cat dog --num-samples 4
-   ```
-
-### Features
-
-- **Conditional Generation**: Generate doodles for specific categories
-- **Latent Space Interpolation**: Create smooth transitions between different categories
-- **Customizable Training**: Train on any subset of the 345 available categories
-- **Easy to Use**: Simple command-line interface for training and generation
-
-### Usage Examples
-
-**Train on custom categories:**
 ```bash
-python train.py --download --categories apple banana cake pizza --epochs 30
-```
+# 1. Setup environment and download demo data
+python setup.py
 
-**Generate specific doodles:**
-```bash
-python generate.py --categories apple cake --num-samples 8
-```
+# 2. Train the model (2-3 minutes)
+python train.py --epochs 10 --batch-size 32
 
-**Create interpolation between categories:**
-```bash
+# 3. Generate doodles!
+python generate.py --categories cat dog face --num-samples 4
+
+# 4. Create interpolations between categories
 python generate.py --interpolate cat dog
+
+# 5. Run complete demo
+python demo.py
 ```
 
-**List available categories:**
-```bash
-python generate.py --list-categories
-```
+### ✨ What You Get
 
-### Model Architecture
+- **🎨 Custom Doodle Generation**: Create new sketches for any category
+- **🔄 Category Control**: Generate specific types (cats, dogs, houses, etc.)
+- **🌈 Smooth Interpolations**: Morph between different categories
+- **📊 Training Visualizations**: See how your model learns
+- **⚡ Easy Setup**: One command to get started
 
-The Conditional VAE uses:
-- **Encoder**: Convolutional layers to encode 28x28 sketches to latent space
-- **Category Embedding**: Learned embeddings for category conditioning  
-- **Decoder**: Transposed convolutions to generate sketches from latent codes
-- **Training**: Beta-VAE loss with reconstruction and KL divergence terms
+### 📁 Generated Files
 
-### Requirements
-
-- Python 3.7+
-- PyTorch 1.9+
-- NumPy, Matplotlib, Pillow
-- See `requirements.txt` for full list
-
-### Files
-
-- `model.py` - Conditional VAE architecture
-- `train.py` - Training script with data loading
-- `generate.py` - Inference script for doodle generation
-- `data_loader.py` - Utilities for downloading and loading Quick Draw data
-- `setup.py` - Quick setup script
+After running the generator, you'll find:
+- `generated/category_sample_N.png` - Individual doodle images
+- `generated_grid.png` - Grid showing all generated doodles
+- `interpolation.png` - Smooth transitions between categories
+- `vae_results.png` - Training progress visualization
+- `training_loss.png` - Model training curves
 
 Please keep in mind that while this collection of drawings was individually moderated, it may still contain inappropriate content.
 
