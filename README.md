@@ -7,6 +7,46 @@ We're sharing them here for developers, researchers, and artists to explore, stu
 
 We have also released a tutorial and model for training your own drawing classifier on [tensorflow.org](https://github.com/tensorflow/docs/blob/master/site/en/r1/tutorials/sequences/recurrent_quickdraw.md).
 
+## Neural Network Doodle Generator
+
+This repository now includes a **Conditional Variational Autoencoder (VAE)** that can generate new doodles of whatever you want! The model learns to encode sketches into a latent space and can generate new drawings conditioned on category labels.
+
+### 🚀 Quick Start
+
+```bash
+# 1. Setup environment and download demo data
+python setup.py
+
+# 2. Train the model (2-3 minutes)
+python train.py --epochs 10 --batch-size 32
+
+# 3. Generate doodles!
+python generate.py --categories cat dog face --num-samples 4
+
+# 4. Create interpolations between categories
+python generate.py --interpolate cat dog
+
+# 5. Run complete demo
+python demo.py
+```
+
+### ✨ What You Get
+
+- **🎨 Custom Doodle Generation**: Create new sketches for any category
+- **🔄 Category Control**: Generate specific types (cats, dogs, houses, etc.)
+- **🌈 Smooth Interpolations**: Morph between different categories
+- **📊 Training Visualizations**: See how your model learns
+- **⚡ Easy Setup**: One command to get started
+
+### 📁 Generated Files
+
+After running the generator, you'll find:
+- `generated/category_sample_N.png` - Individual doodle images
+- `generated_grid.png` - Grid showing all generated doodles
+- `interpolation.png` - Smooth transitions between categories
+- `vae_results.png` - Training progress visualization
+- `training_loss.png` - Model training curves
+
 Please keep in mind that while this collection of drawings was individually moderated, it may still contain inappropriate content.
 
 ## Content
